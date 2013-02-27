@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <!-- Slide meta data, remove/edit as you see fit -->
+    <title>Altoros Padrino Presentation</title>
+    <meta name="author" content="Luis Lopez" />
+    <meta name="email" content="luigibyte@gmail.com" />
+    <meta name="date" content="2013-02-27" />
+    <!-- Slippy core file and dependencies -->
+    <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="jquery.history.js"></script>
+    <script type="text/javascript" src="custom.js"></script>
+    <script type="text/javascript" src="slippy-0.9.0.js"></script>
+    <!-- Slippy structural styles -->
+    <link type="text/css" rel="stylesheet" href="slippy-0.9.0.css"/>
+    <!-- Slippy theme -->
+    <link type="text/css" rel="stylesheet" href="slippy-kerryb.css"/>
+    <!-- Syntax highlighting -->
+    <script type="text/javascript" src="highlighter/shCore.js"></script>
+    <script type="text/javascript" src="highlighter/shBrushBash.js"></script>
+    <script type="text/javascript" src="highlighter/shBrushRuby.js"></script>
+    <link type="text/css" rel="stylesheet" href="highlighter/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="highlighter/shThemeEclipse.css"/>
+    <!-- Slippy init code -->
+    <script type="text/javascript">
+      $(function() {
+          $(".slide").slippy({
+          });
+          SyntaxHighlighter.all();
+          });
+    </script>
+  </head>
+  <body>
+    <div class="slide">
+      <h1>Padrino</h1>  
+      <div class='center'><img src="images/glass.png"></div>
+      <div class="footer">
+        <span class="left">Use space bar or arrow keys to navigate, and escape for index.</span>
+        <span class="right">Built with <a href="https://github.com/Seldaek/slippy">Slippy</a>.</span>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Who is the Padrino?</h1>
+      <div class='center'><img src="images/who.gif" width="300px"></div>
+    </div>
+
+    <div class="slide">
+      <h1>He is not  Marlon Brando!</h1>
+      <div class='center'><img src="images/godfather.jpg" width="300px"></div>
+    </div>
+
+    <div class="slide">
+      <h1>Padrino is</h1>
+      <p>A ruby web framework built upon the Sinatra web library</p>
+      <p>It was created to make it fun and easy to code more advanced web applications while still adhering to the spirit that makes Sinatra great!</p>
+      <p>It adds Standard library of tools, helpers and functions that will make Sinatra suitable for increasingly complex applications.</p>
+    </div>
+
+    <div class="slide">
+      <h1>Padrino adds</h1>
+      <div class="vcenter">
+        <ul>
+          <li>Agnostic: Full support for many popular testing, templating, mocking, and database libraries.</li>
+          <li>Generators: Create Padrino applications, models, controllers i.e: padrino g project.</li>
+          <li>Mountable: Unlike other ruby frameworks, principally designed for mounting multiple apps.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Padrino adds</h1>
+      <div class="vcenter">
+        <ul>
+          <li>Routing: Full url named routes, named params, respond_to support, before/after filter support.</li>
+          <li>Tag Helpers: View helpers such as: tag, content_tag, input_tag.</li>
+          <li>Asset Helpers: View helpers such as: link_to, image_tag.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Padrino adds</h1>
+      <div class="vcenter">
+        <ul>
+          <li>Form Helpers: Builder support such as: form_tag, form_for, field_set_tag.</li>
+          <li>Text Helpers: Useful formatting like: relative_time_ago, js_escape_html.</li>
+          <li>Mailer: Fast and simple delivery support for sending emails (akin to ActionMailer).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Padrino adds</h1>
+      <div class="vcenter">
+        <ul>
+          <li>Caching: Simple route and fragment caching to easily speed up your web requests.</li>
+          <li>Admin: Built-in admin interface (akin to Django) with authentication.</li>
+          <li>Logging: Provide a unified logger that can interact with your ORM or any library.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Padrino adds</h1>
+      <div class="vcenter">
+        <ul>
+          <li>Reloading: Automatically reloads server code during development.</li>
+          <li>Localization: Full support for I18n localization.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Generators</h1>
+      <div>
+        <p>Project generator</p>
+        <pre>$ padrino g project name [options]</pre>
+        <br>
+        <pre>
+          Options:
+            
+            -b, [--bundle]
+
+            -a, [--adapter=ADAPTER]
+
+            -d, [--orm=ORM]
+
+            -t, [--test=TEST]
+
+            -m, [--mock=MOCK]
+
+            -s, [--script=SCRIPT]
+
+            -e, [--renderer=RENDERER]
+
+            -c, [--stylesheet=STYLESHEET]
+        </pre>
+        <br>
+        <pre>
+          i.e:
+          
+          $ padrino g project HelloWord -b -a sqlite -d activerecord -t rspec -m mocha -s jquery -e haml -c sass
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Generators</h1>
+      <div>
+        <p>Controller generator</p>
+        <pre>$ padrino g controller name [verb:action] [verb:action]</pre>
+        <br>
+        <pre>
+          Options:
+          
+            -r, [--root=ROOT]  # The root destination
+                               # Default: .
+            -a, [--app=APP]    # The application destination path
+                               # Default: /app
+            -d, [--destroy]
+        </pre>
+        <br>
+        <pre>
+          i.e:
+          
+          $ padrino g controller posts get:index get:show post:create put:update delete:destroy
+        </pre>
+      </div>
+    </div>
+
+    
+    <div class="slide">
+      <h1>Generators</h1>
+      <div>
+        <p>Model generator</p>
+        <pre>$ padrino g model name [field:type] [field:type]</pre>
+        <br>
+        <pre>
+          Options:
+          
+            -r, [--root=ROOT]       # The root destination
+                                    # Default: .
+            -a, [--app=APP]         # The application destination path
+                                    # Default: .
+            -d, [--destroy]
+                     
+            -s, [--skip-migration]
+        </pre>
+        <br>
+        <pre>
+          i.e:
+          
+          $ padrino g model post title:string body:text -a app
+        </pre>
+      </div>
+    </div>
+    
+    <div class="slide">
+      <h1>Generators</h1>
+      <div>
+        <p>Migration generator</p>
+        <pre>$ padrino g migration name [field:type] [field:type]</pre>
+        <br>
+        <pre>
+          Options:
+          
+            -r, [--root=ROOT]  # The root destination
+                               # Default: .
+            -d, [--destroy]
+        </pre>
+        <br>
+        <pre>
+          i.e:
+          
+          $ padrino g migration post title:string body:text
+        </pre>
+      </div>
+    </div>
+    
+    <div class="slide">
+      <h1>Generators</h1>
+      <div>
+        <p>Admin generator</p>
+        <pre>$ padrino g admin [options]</pre>
+        <br>
+        <pre>
+          Options:
+          
+            -r, [--root=ROOT]  # The root destination
+                               # Default: .
+            -s, [--skip-migration]
+
+            -d, [--destroy]
+        </pre>
+        <br>
+        <pre>
+          i.e:
+          
+          $ padrino g admin --theme blue
+        </pre>
+      </div>
+    </div>    
+
+    <div class="slide">
+      <h1>Getting Started</h1>
+      <div>
+        <p>Install the gem</p>
+        <pre>$ gem install padrino</pre>
+        <p>Generate the project</p>
+        <pre>$ padrino g project HelloWord</pre>
+        <p>Generate the admin</p>
+        <pre>$ padrino g admin</pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Getting Started</h1>
+      <div>
+        <p>Create the database</p>
+        <pre>$ padrino rake ar:create</pre>
+        <p>Run migrations</p>
+        <pre>$ padrino rake ar:migrate</pre>
+        <p>Create seeds data</p>
+        <pre>$ padrino rake seed</pre>
+        <p>Run the server</p>
+        <pre>$ padrino start</pre>        
+      </div>
+    </div>
+
+
+    <div class="slide">
+      <h1>App Structure</h1>
+      <div>
+        <pre>
+          App/
+            app.rb
+            Controllers/
+            Helpers/
+            Models/
+            Views/
+          Config/
+            app.rb
+            boot.rb
+            database.rb
+          Db/
+            schema.rb
+            seeds.rb
+            Migrate/
+          Lib/
+          Public/
+            Images/
+            Javascripts/
+            Stylesheets/
+          Spec/
+          Tmp/
+          Gemfile
+          config.ru
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>config/apps.rb</h1>
+      <p>This defines which applications are mounted in your project.</p>
+      <div class="">
+        <pre class="brush: ruby">
+          Padrino.configure_apps do
+            set :session_secret, 'bb0d46b5ad8312b0590a50be93d6691a3959a3d4741dcdda6953b04f521c2adb'
+          end
+          
+          Padrino.mount("HelloWord").to('/')
+          Padrino.mount("Admin").to("/admin")
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>config/boot.rb</h1>
+      <p>Define constants, load dependencies, before/after load hooks</p>
+      <div>
+        <pre class="brush: ruby">
+          PADRINO_ENV  = ENV['PADRINO_ENV'] ||= ENV['RACK_ENV'] ||= 'development'  unless defined?(PADRINO_ENV)
+
+          PADRINO_ROOT = File.expand_path('../..', __FILE__) unless defined?(PADRINO_ROOT)
+
+          require 'rubygems' unless defined?(Gem)
+          require 'bundler/setup'
+          Bundler.require(:default, PADRINO_ENV)
+
+          Padrino.before_load do
+            # code here
+          end
+
+          Padrino.after_load do
+            # code here
+          end
+
+          Padrino.load!
+        </pre>
+      </div>
+    </div>
+    
+    <div class="slide">
+      <h1>config/database.rb</h1>
+      <p>This defines the connection details for your chosen database adapter</p>
+      <div>
+        <pre class="brush: ruby">
+          ActiveRecord::Base.configurations[:development] = {
+            :adapter => 'sqlite3',
+            :database => Padrino.root('db', 'hello_world_development.db')
+
+          }
+
+          ActiveRecord::Base.configurations[:production] = {
+            :adapter => 'sqlite3',
+            :database => Padrino.root('db', 'hello_world_production.db')
+
+          }
+
+          ActiveRecord::Base.configurations[:test] = {
+            :adapter => 'sqlite3',
+            :database => Padrino.root('db', 'hello_world_test.db')
+
+          }
+          
+          ...
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>config/database.rb</h1>
+      <div>
+        <pre class="brush: ruby">
+          ActiveRecord::Base.logger = logger
+
+          ActiveRecord::Base.mass_assignment_sanitizer = :strict
+
+          ActiveRecord::Base.auto_explain_threshold_in_seconds = 0.5
+
+          ActiveRecord::Base.include_root_in_json = false
+
+          ActiveRecord::Base.store_full_sti_class = true
+
+          ActiveSupport.use_standard_json_time_format = true
+
+          ActiveSupport.escape_html_entities_in_json = false
+
+          ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[Padrino.env])
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>app/app.rb</h1>
+      <p>This is the primary configuration file for your core application</p>
+      <div>
+        <pre class="brush: ruby">
+          class HelloWorld < Padrino::Application
+            register SassInitializer
+            use ActiveRecord::ConnectionAdapters::ConnectionManagement
+            register Padrino::Rendering
+            register Padrino::Mailer
+            register Padrino::Helpers
+
+            enable :sessions
+
+            get '/' do
+              redirect :posts
+            end
+          end
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>app/controllers</h1>
+      <p>This is where the Padrino route definitions should be defined</p>
+      <div>
+        <pre class="brush: ruby">
+          HelloWorld.controllers :accounts do
+            get :index do
+              @accounts = Account.all
+              render 'accounts/index'
+            end
+            
+            get :edit, :map => "/accounts/:id/edit" do
+              @account = Account.find(params[:id])
+              render 'accounts/edit'
+            end
+            
+            put :update, :map => "/accounts/:id" do
+              @account = Account.find(params[:id])
+              if @account.update_attributes(params[:account])
+                flash[:notice] = 'Account was successfully updated.'
+                redirect url(:accounts, :edit, :id => @account.id)
+              else
+                render 'accounts/edit'
+              end
+            end
+          end          
+        </pre>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Learning more</h1>
+      <h2><a href="http://www.padrinorb.com">http://www.padrinorb.com</a></h2>
+      <br>
+      <div class="center">
+        <img src="images/glass.png" alt="glass" />
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="vcenter">
+        <h1>Thank you!</h1>
+        <h2>Any questions?</h2>
+      </div>
+    </div>
+  </body>
+</html>
